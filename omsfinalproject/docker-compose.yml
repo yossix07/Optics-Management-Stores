@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  omsapi:
+    image: ${DOCKER_REGISTRY-}omsapi
+    build:
+      context: .
+      dockerfile: OMSAPI/Dockerfile

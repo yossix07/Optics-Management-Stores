@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <link href="https://app.bootstrapemail.com" />
+
+    </head>
+    <body class="bg-blue-900">
+        <div class="container">
+            <div class="space-y-4 mb-6">
+                <h1 class="text-4xl fw-800 text-light">Thanks for your order, @Model.OrderResponseDto.UserName</h1>
+                <h3 class="text-4xl fw-800 text-light">Your order number is: @Model.OrderResponseDto.Id</h3>
+                <p class="my-6 ax-center text-xl text-center fw-200 text-light">Your order has been received in the system, a message will be sent to you when the order is ready for pickup.</p>
+            </div>
+            <div class="card rounded-3xl px-4 py-8 p-lg-10 mb-6">
+                <h3 class="text-center">Receipt from @Model.Tenant.Name</h3>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Total Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.OrderResponseDto.OrderItems)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.Price</td>
+                                <td>@item.TotalPrice</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="message text-light">
+                <p class="my-4 text-xl fw-200">If you have any questions about your order, please feel free to contact us at @Model.Tenant.Email</p>
+                <p class="my-4 text-xl fw-200">Thank you for choosing our service.</p>
+            </div>
+        </div>
+    </body>
+</html>

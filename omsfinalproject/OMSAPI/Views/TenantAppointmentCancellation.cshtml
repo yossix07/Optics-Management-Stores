@@ -1,0 +1,23 @@
+﻿@model OMSAPI.Dto.AppointmentsDto.AppointmentEmailDto
+
+<html>
+    <head>
+    <title>Appointment Cancellation</title>
+        <style>
+            /* Add your custom CSS styles here */
+        </style>
+    </head>
+    <body>
+        <h1>Appointment Cancellation</h1>
+
+        <p>Dear @Model.Tenant.Name, </p>
+
+        <p>We would like to inform that appointment has been canceled. Here are the details:</p>
+
+        <ul>
+        <li><strong>Appointment Date:</strong> @Model.Date</li>
+        <li><strong>Appointment Time:</strong> @Model.Slot.StartTime : @Model.Slot.EndTime</li>
+        </ul>
+
+    </body>
+</html>
